@@ -1,0 +1,70 @@
+.header {
+}
+.container{
+    @include responsive (mobilemin){
+        padding: 0rem 2rem;
+    }
+}
+.header__container {
+    @include center;
+    margin-top: 2.2rem;
+    margin-bottom: 2.1rem;
+}
+.header__burger {
+    display: none;
+    @include responsive (tabletmin) {
+        display: block;
+    }
+}
+.header__logo{
+    @include responsive (tabletmin){
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+/*
+*************************** NAVBAR ***************************
+*/
+.header__navbar {
+    @include center;
+    margin-left: 5.8rem;
+    @include responsive (tabletmin){
+        display: none;
+    }
+}
+.header__navbar__item {
+    &:not(:last-child){
+        margin-right: 3.2rem;
+    }
+}
+.header__navbar__item__link {
+    font-family: $space-font;
+    @include font ($font-weight-bold, $text-size, $text-line, $dim-grey);
+    &:hover{
+        color: $yellow-color;
+    }
+}
+.header__btn {
+    display: block;
+    margin-left: auto;
+    @include responsive (tabletmin){
+        display: none;
+    }
+}
+
+.header-bac {
+    background:url(/images/about-header-bac.png);
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: right;
+}
+.header__container__title {
+@include font ($font-weight-bold, $tittle-middle-size, $tittle-middle-line, $white-color);
+padding-top: 7.2rem;
+padding-bottom: 7.2rem;
+@include responsive (tablet){
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+}

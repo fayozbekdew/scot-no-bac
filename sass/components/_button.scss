@@ -1,0 +1,46 @@
+.site-btn{
+    max-width: 19rem;
+    min-width: 18rem;
+    padding: 1.4rem 3.9rem;
+    border: 0.3rem solid transparent   ;
+    background-color: $yellow-color;
+    font-family: $space-font;
+    @include font ($font-weight-bold, $text-size, $text-line, $white-color);
+    text-align: center;
+        &:hover{
+        background-color: $white-color;
+        color: $yellow-color;
+        border: 0.3rem solid $yellow-color;
+    }
+}
+
+.footer__info__container__btn {
+    // max-width: 15rem;
+    background-color:$light-grey;
+    @include center;
+    &:not(:last-child){
+        margin-right: 1.8rem;
+    }
+    &__info{
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+        padding-right: 1.6rem;
+        padding-left: 1.1rem;
+    }
+    &__img{
+        padding-left: 0.5rem;
+    }
+    &__title{
+        @include font ($font-weight-bold, $mobile-title-size, $mobile-title-line, $dark-color);
+        @include responsive (mobilemin){
+            @include font ($font-weight-bold, 1.3rem, 0.7, $dark-color);
+            margin-top: 0.4rem;
+        }
+    }
+    &__text{
+        @include font ($font-weight-bold, $mobile-text-size, $mobile-text-line, $dark-color);
+        @include responsive (mobilemin){
+            @include font ($font-weight-bold, 0.5rem, 0.3, $dark-color);
+        }
+    }
+}

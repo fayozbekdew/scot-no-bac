@@ -1,0 +1,92 @@
+
+
+.footer__info {
+    // background-color: $dark-color;
+    background-image: url(/images/footer-bac.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    &__container{
+        @include center;
+        @include responsive (tablet){
+            flex-direction: column;
+            row-gap: 4rem;
+        }
+    }
+    .device{
+        @include center;
+    }
+    &__container__text{
+        font-family: $space-font;
+        @include font ($font-weight-bold, $tittle-normal-size, $tittle-normal-line, $white-color);
+        max-width: 51.5rem;
+        display: block;
+        margin-right: auto;
+        @include responsive (tablet){
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @include responsive (mobilemin){
+            @include font ($font-weight-bold, $tittle-mobile-size, $tittle-mobile-line, $white-color);
+        }
+    }
+}
+/*
+*************************** NAVBAR ***************************
+*/
+.footer__nav{
+    background-color: $bac-color;
+    padding: 3.5rem 0rem;
+}
+.footer__nav__container {
+    @include center; 
+    @include responsive (mobile){
+        flex-direction: column;
+        row-gap: 3rem;
+    }
+}
+.footer__navbar {
+    @include center;
+    margin-left: 5.8rem;
+    @include responsive (tabletmin){
+        margin-left: 2rem;
+    }
+    @include responsive (mobilemin){
+        flex-direction: column;
+    }
+    &__item{
+        &:not(:last-child){
+            margin-right: 3.2rem;
+            @include responsive (mobilemin){
+            margin-right: 0;
+            text-align: center;
+            }
+        }
+        
+    }
+    &__item__link{
+    font-family: $space-font;
+    @include font ($font-weight-bold, $text-size, $text-line, $dim-grey);
+    &:hover{
+        color: $yellow-color;
+    }
+    }
+}
+.footer__social {
+    @include center;
+    margin-left: auto;
+    @include responsive (mobile){
+        margin-left: 0;
+    }
+    &__item{
+        &:not(:last-child){
+            margin-right: 2.4rem;
+        }
+    }
+    &__item__link{
+
+    }
+}

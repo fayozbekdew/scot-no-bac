@@ -1,0 +1,524 @@
+main{
+    flex-grow: 1;
+}
+
+/*
+*************************** HERO SECTION ***************************
+*/
+.hero-left::after{
+    content:attr(hero-left);
+}
+.hero-left{
+    background: url(/images/hero-left-bac-1.svg), url(/images/hero-center-bac.svg);
+    background-position: left center, right 20rem top 30rem;
+    background-repeat:no-repeat;
+    z-index: 3;
+    
+}
+.hero::before{
+        content: attr(hero);
+        
+}
+.hero {
+    background: url(/images/hero-bac.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    &__tittle{
+    max-width: 52rem;
+    padding-top: 15.3rem;
+    margin-bottom: 4rem;
+    @include font ($font-weight-bold, $tittle-middle-size, $tittle-middle-line, $white-color);
+    @include responsive (tablet){
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    }
+    &__text{
+    font-family: $legend-font;
+    @include font ($font-weight-normal, $text-size, $text-line, $white-color);
+    max-width: 54rem;
+    margin-bottom: 4rem;
+    margin-left: 10%;
+    @include responsive (tablet){
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    }
+    &__btn{
+        margin-bottom: 15.3rem;
+        margin-left: 10%;
+        @include responsive (tablet){
+            margin-left: 0%;
+        }
+    }
+}
+.hero-container {
+    @include responsive (tablet){
+        @include center;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+
+/*
+*************************** HERO SECTION ***************************
+*/
+.chance {
+
+background: url(/images/chance-left-bac.svg);
+background-repeat:no-repeat;
+background-position: left top 20rem;
+padding-top: 16rem;
+padding-bottom: 20rem;
+}
+.container {
+}
+.chance__container {
+
+}
+.chance__list {
+    @include center;
+    column-gap: 3rem;
+    @include responsive (tabletmin){
+        flex-direction: column;
+    }
+}
+.chance__item {
+
+    &__img{
+    padding: 2rem 2rem;
+    border-radius: 50%;
+    background-color: $yellow-color;
+    margin-bottom: 4rem;
+    }
+    &__text{
+    max-width: 35rem;
+    font-family: $legend-font;
+    @include font ($font-weight-normal, $text-size, $text-line, $dim-grey);
+    }
+    &__tittle{
+    max-width: 35rem;
+    @include font ($font-weight-bold, $tittle-easy-size, $tittle-easy-line, $dark-color);
+    margin-bottom: 2.7rem;
+    }
+}
+
+/*
+*************************** TELEMENTRY ***************************
+*/
+.amenities{
+padding-top: 5rem;
+padding-bottom: 30rem;
+background: url(/images/telementry-right-bac.svg);
+background-repeat: no-repeat;
+background-position: right bottom 30rem;
+z-index: 2;
+}
+.amenities__container{
+    
+}
+.telementry {
+    @include center;
+    justify-content: space-between;
+    margin-bottom: 5rem;
+    @include responsive (tabletmin){
+        flex-direction: column;
+    }
+}
+.telementry-right-bac{
+
+
+}
+
+.telementry__info {
+
+    &__tittle{
+    max-width: 49.5rem; 
+    @include font ($font-weight-bold, $tittle-normal-size, $tittle-normal-line, $dark-color);
+    margin-bottom: 2.4rem;
+    }
+    &__text{
+        font-family: $legend-font;
+        max-width: 49.5rem; 
+        @include font ($font-weight-normal, $text-size, $text-line, $dim-grey);
+        margin-bottom: 4rem;
+    }
+    &__btn{
+
+    }
+}
+.telementry__images {
+    &__img{
+        height: 40rem;
+        border-radius: 50%;
+    }
+}
+
+
+/*
+*************************** ABOUT ***************************
+*/
+
+/*
+*************************** VALUES-SECTION ***************************
+*/
+.values {
+    padding-bottom: 12rem;
+    padding-top: 5rem;
+    &__title{
+    @include font ($font-weight-bold, $tittle-normal-size, $tittle-normal-line, $dark-color);
+    text-align: center;
+    }
+    @include responsive (mobilemin){
+        font-size: 3.2rem;
+    }
+    &__list{
+    @include center;
+    justify-content: space-between;
+    @include responsive (tabletmin){
+        flex-direction: column;
+    }
+    }
+    &__number{
+    position: absolute;
+    top: 18rem;
+    left: 14rem;
+    padding: 2rem 2rem;
+    border-radius: 50%;
+    background-color: $yellow-color;
+    @include responsive (tablet){
+        top: 18rem;
+        left: 11rem;
+    }
+    @include responsive (tabletmin){
+        left: 14rem;
+    }
+    @include responsive (mobilemaxmin){
+        left: 12rem;
+    }
+    }
+    &__item{
+    position: relative;
+        &__img{
+        border-radius: 50%;
+        margin-top: 7.5rem;
+        margin-left: 29%;
+        }
+        &__title{
+            max-width: 35rem;
+            @include font ($font-weight-bold, $tittle-easy-size, $tittle-easy-line, $dark-color);
+            margin-bottom: 2.7rem;
+            margin-top: 5.2rem;
+            text-align: center;
+        }
+        &__text{
+            font-family: $legend-font;
+            max-width: 35rem;
+            @include font ($font-weight-normal, $text-size, $text-line, $dim-grey);
+            text-align: center;
+        }
+    }
+}
+
+/*
+*************************** FAQ-SECTION ***************************
+*/
+
+.faq {
+    padding-bottom: 16rem;
+    &__title{
+    text-align: center;
+    @include font ($font-weight-bold, $tittle-normal-size, $tittle-normal-line, $dark-color);
+    margin-bottom: 6.4rem;
+    }
+}
+.faq__info {
+    display: flex;
+    justify-content: space-between;
+    @include responsive (tablet){
+        flex-direction: column;
+    }
+    &:not(:last-child){
+        margin-bottom: 6.4rem;
+    }
+&__title{
+max-width: 35rem;
+@include font ($font-weight-bold, 4rem, 1.2, $dark-color);
+@include responsive (tablet){
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3.2rem;
+}
+@include responsive (mobilemin){
+    font-size: 3.2rem;
+}
+}
+&__list{
+max-width: 73rem;
+
+}
+&__item{
+    padding: 3.2rem 4rem;
+    background-color: $snow-color;
+    &:not(:last-child){
+        margin-bottom: 1.6rem;
+    }
+    &:hover{
+        background-color: $light-yellow;
+    }
+    &__title{
+    @include center;
+    justify-content: space-between;
+    margin-bottom: 2.4rem;
+        &__text{
+        @include font ($font-weight-bold, $tittle-easy-size, $tittle-easy-line, $dark-color);
+    }
+    }
+    &__text{
+        font-family: $legend-font;
+        @include font ($font-weight-normal, $text-size, $text-line, $dim-grey);
+    }
+}
+}
+
+
+
+
+
+
+
+/*
+*************************** CAREERS PAGES ***************************
+*/
+/*
+*************************** OCCUPATIONS-SECTION ***************************
+*/
+
+.occupations {
+    padding-bottom: 16rem;
+}
+
+.occupation {
+    @include center;
+    padding: 3.2rem 4rem;
+    justify-content: space-between;
+    background-color: $snow-color;
+    &:not(:last-child){
+        margin-bottom: 2.4rem;
+    }
+    @include responsive (mobile){
+        flex-direction: column;
+    }
+}
+.occupation__info {
+    &__text{
+    max-width: 45rem;
+    font-family: $legend-font;
+    @include font ($font-weight-normal, $text-size, $text-line, $dim-grey);
+    @include responsive (mobile){
+        text-align: center;
+        margin-bottom: 1.6rem;
+    }
+    }
+    &__title{
+    max-width: 30rem;
+    @include font ($font-weight-bold, $tittle-easy-size, $tittle-easy-line, $dark-color);
+    margin-bottom: 0.8rem;
+    @include responsive (mobile){
+        text-align: center;
+        margin-bottom: -0.4rem;
+    }
+    }
+}
+
+
+
+/*
+*************************** LOCATION PAGES ***************************
+*/
+
+/*
+*************************** WORLD SECTION ***************************
+*/
+
+.world {
+padding-top: 14.4rem;
+padding-bottom: 12rem;
+@include responsive (mobile){
+    padding-top: 4rem;
+    height: 121rem;
+}
+@include responsive (mobilemin){
+    height: 121rem;
+}
+@include responsive (mobilemaxmin){
+    height: 121rem;
+    padding-top: 0rem;
+}
+&__list{
+position: relative;
+}
+&__item{
+position: absolute;
+}
+&__item__1{
+    top: 18rem;
+    left: 22rem;
+    @include responsive (tablet){
+        top: 23rem;
+        left: 12rem;
+    }
+    @include responsive (tabletmin){
+        top: 24rem;
+        left: 9rem;
+    }
+}
+&__item__2{
+    top: 14rem;
+    left: 42rem;
+    @include responsive (tablet){
+        top: 20rem;
+        left: 26rem;
+    }
+    @include responsive (tabletmin){
+        top: 21rem;
+        left: 22rem;
+    }
+}
+&__item__3{
+    top: 35rem;
+    left: 78rem;
+    @include responsive (tablet){
+        top: 34rem;
+        left: 49rem;
+    }
+    @include responsive (tabletmin){
+        top: 34rem;
+        left: 42rem;
+    }
+}
+&__item__4{
+    top: 21rem;
+    left: 88rem;
+    @include responsive (tablet){
+        top: 25rem;
+        left: 55rem;
+    }
+    @include responsive (tabletmin){
+        top: 26rem;
+        left: 47rem;
+    }
+}
+
+&__title{
+    max-width: 45.7rem;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 4rem;
+    @include font ($font-weight-bold, $tittle-normal-size, $tittle-normal-line, $dark-color);
+    @include responsive (mobile){
+        margin-top: 45rem;
+    }
+}
+&__text{
+    max-width: 57.3rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4rem;
+    @include font ($font-weight-normal, $text-size, $text-line, $dim-grey);
+}
+&__btn{
+    margin-left: 42%;
+    @include responsive (mobile){
+        margin-left: 33%;
+    }
+    @include responsive (mobilemin){
+        margin-left: 20%;
+    }
+    @include responsive (mobilemaxmin){
+        margin-left: 15%;
+    }
+}
+}
+.world-mobile {
+    // height: 71rem;
+
+    background: url(/images/world-mobile.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position:center;
+    @include responsive (desctop){
+        display: none;
+    }
+    @include responsive (mobile){
+        display: block;
+        height: 20rem;
+    }
+    &__list{
+        display: none;
+        @include responsive (mobile){
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding-top: 60%;
+        }
+        @include responsive (mobilemin){
+            padding-top: 70%;
+        }
+    }
+    &__item{
+        max-width: 31rem;
+        min-width: 31rem;
+        background-color: $light-yellow;
+        &:not(:last-child){
+            margin-bottom: 1.6rem;
+        }
+        @include responsive (mobilemin){
+            max-width: 21rem;
+            min-width: 21rem;
+        }
+        @include responsive (mobilemaxmin){
+            max-width: 15rem;
+            min-width: 15rem;
+        }
+        &__title{
+            max-width: 12rem;
+            @include font ($font-weight-bold, $tittle-easy-size, $tittle-easy-line, $dark-color);
+            // padding: 2.2rem 10rem;
+            padding-top: 2.2rem;
+            padding-bottom: 2.2rem;
+            padding-left: 10rem;
+            padding-right: 10rem;
+        @include responsive (mobilemin){
+            padding-left: 5rem;
+            padding-right: 5rem;
+        }
+        @include responsive (mobilemaxmin){
+            padding-left: 3rem;
+            padding-right: 3rem;
+            @include font ($font-weight-normal, $mobile-title-size, $mobile-title-line, $dark-color);
+        }
+        }
+    }
+}
+.world-bac{
+    // position: relative;
+    height: 71rem;
+    background: url(/images/world.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position:center;
+    @include responsive (desctop){
+        display: block;
+    }
+    @include responsive (mobile){
+        display: none;
+    }
+}
