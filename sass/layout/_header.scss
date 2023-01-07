@@ -1,5 +1,4 @@
-.header {
-}
+
 .container{
     @include responsive (mobilemin){
         padding: 0rem 2rem;
@@ -57,6 +56,9 @@
     background-repeat:no-repeat;
     background-size: cover;
     background-position: right;
+    @include responsive (tabletmin){
+        background-position:center;
+    }
 }
 .header__container__title {
 @include font ($font-weight-bold, $tittle-middle-size, $tittle-middle-line, $white-color);

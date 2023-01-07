@@ -5,25 +5,56 @@ main{
 /*
 *************************** HERO SECTION ***************************
 */
-.hero-left::after{
-    content:attr(hero-left);
-}
-.hero-left{
-    background: url(/images/hero-left-bac-1.svg), url(/images/hero-center-bac.svg);
-    background-position: left center, right 20rem top 30rem;
-    background-repeat:no-repeat;
-    z-index: 3;
-    
-}
-.hero::before{
-        content: attr(hero);
-        
-}
-.hero {
-    background: url(/images/hero-bac.jpg);
+
+.hero{
+        @include responsive (tablet){
+            padding-bottom: 10rem;
+        }
+        @include responsive (mobile){
+            padding-bottom: 15rem;
+        }
+        background: url(/images/hero-bac.jpg);
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
+}
+.hero::after{
+    content: "";
+    background:url(/images/hero-center-bac.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 435px;
+    right: 158px;
+    width: 450px;
+    height: 100%;
+    @include responsive (tablet){
+        top: 635px;
+        left: 0;
+    }
+    @include responsive (mobile){
+        margin-top: 5rem;
+        left: -13rem;
+        top: 735px;
+    }
+    @include responsive (mobilemin){
+        left: -20rem;
+    }
+}
+.hero::before{
+    content: "";
+    background: url(/images/hero-left-bac-1.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 433px;
+    left: 0;
+    width: 202px;
+    height: 200px;
+    @include responsive (tablet){
+        display: none;
+    }
+}
+.hero {
+    
     &__tittle{
     max-width: 52rem;
     padding-top: 15.3rem;
@@ -74,11 +105,9 @@ background-repeat:no-repeat;
 background-position: left top 20rem;
 padding-top: 16rem;
 padding-bottom: 20rem;
+@include responsive (tabletmin){
+background: none;
 }
-.container {
-}
-.chance__container {
-
 }
 .chance__list {
     @include center;
@@ -88,22 +117,38 @@ padding-bottom: 20rem;
     }
 }
 .chance__item {
-
+    
     &__img{
     padding: 2rem 2rem;
     border-radius: 50%;
     background-color: $yellow-color;
     margin-bottom: 4rem;
+    @include responsive (tabletmin){
+        margin-left: 38%;
+    }
     }
     &__text{
     max-width: 35rem;
     font-family: $legend-font;
     @include font ($font-weight-normal, $text-size, $text-line, $dim-grey);
+    @include responsive (tabletmin){
+        text-align: center;
+        max-width: 45rem;
+    }
     }
     &__tittle{
     max-width: 35rem;
     @include font ($font-weight-bold, $tittle-easy-size, $tittle-easy-line, $dark-color);
     margin-bottom: 2.7rem;
+    @include responsive (tabletmin){
+        text-align: center;
+        max-width: 45rem;
+    }
+    }
+    @include responsive (tabletmin){
+        &:not(:last-child){
+            margin-bottom: 3rem;
+        }
     }
 }
 
@@ -113,33 +158,111 @@ padding-bottom: 20rem;
 .amenities{
 padding-top: 5rem;
 padding-bottom: 30rem;
-background: url(/images/telementry-right-bac.svg);
-background-repeat: no-repeat;
-background-position: right bottom 30rem;
-z-index: 2;
+// position: relative;
+// background: url(/images/telementry-right-bac.svg);
+// background-repeat: no-repeat;
+// background-position: right bottom 30rem;
+// z-index: 2;
 }
-.amenities__container{
+
+.telementry::before{
+    content: "";
+    background-image: url(/images/female.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    position: absolute;
+    width: 445px;
+    height: 445px;
+    top:-74px;
+    right: 50px;
+    border-radius: 50%;
+    @include responsive (desctop){
+        width: 350px;
+        height: 350px;
+        top: 0rem;
+    }
+    @include responsive (tablet){
+        top: -100px;
+        left: 22%;
+        right: 0;
+    }
+    @include responsive (mobile){
+        width: 300px;
+        height: 300px;
+        top: 0;
+        left: 15%;
+        right: 0;
+    }
+    @include responsive (mobilemin){
+        width: 250px;
+        height: 250px;
+        margin-top: -10rem;
+    }
+    @include responsive (mobilemaxmin){
+        width: 200px;
+        height: 200px;
+    }
+}
+.telementry::after{
+    content: "";
+    background-image: url(/images/arrow-left.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 734px;
+    height: 100%;
+    top: 230px;
     
+    right: 0;
+    @include responsive (tablet){
+    top: 130px;
+    
+    
+    }
+    @include responsive (tabletmin){
+        width: 534px;
+        height: 100%;
+    }
+    @include responsive (mobile){
+        height: 100%;
+        width: 354px;
+        top: 130px;
+    }
+    @include responsive (mobilemin){
+        top: 5px;
+        width: 300px;
+    }
+    @include responsive (mobilemaxmin){
+        width: 250px;
+        right: 0;
+    }
 }
 .telementry {
+    @include responsive (tablet){
+        padding-top: 35rem;
+    }
+    position: relative;
     @include center;
-    justify-content: space-between;
     margin-bottom: 5rem;
     @include responsive (tabletmin){
         flex-direction: column;
     }
 }
-.telementry-right-bac{
-
-
-}
-
 .telementry__info {
-
+    @include responsive (tablet){
+        @include center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
     &__tittle{
     max-width: 49.5rem; 
     @include font ($font-weight-bold, $tittle-normal-size, $tittle-normal-line, $dark-color);
     margin-bottom: 2.4rem;
+    @include responsive (mobilemin){
+        font-size: 3.2rem;
+        line-height: 1;
+        margin-top: -20rem;
+    }
     }
     &__text{
         font-family: $legend-font;
@@ -147,22 +270,489 @@ z-index: 2;
         @include font ($font-weight-normal, $text-size, $text-line, $dim-grey);
         margin-bottom: 4rem;
     }
-    &__btn{
+}
 
+// COMING
+.coming::before{
+    content: "";
+    background-image: url(/images/city-img.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    position: absolute;
+    width: 445px;
+    height: 445px;
+    top:34px;
+    right: 0;
+    left: 50px;
+    border-radius: 50%;
+    @include responsive (desctop){
+        width: 350px;
+        height: 350px;
+        top: 9rem;
+    }
+    @include responsive (tablet){
+        top: -100px;
+        left: 25%;
+        right: 0;
+        margin-top: 8rem;
+    }
+    @include responsive (mobile){
+        width: 300px;
+        height: 300px;
+        top: -100px;
+        left: 23%;
+        right: 0;
+    }
+    @include responsive (mobilemin){
+        width: 250px;
+        height: 250px;
+        margin-top: -10rem;
+        top: 100px;
+        left: 58px;
+    }
+    @include responsive (mobilemaxmin){
+        width: 200px;
+        height: 200px;
     }
 }
-.telementry__images {
-    &__img{
-        height: 40rem;
-        border-radius: 50%;
+.coming::after{
+    content: "";
+    background-image: url(/images/better-arrow.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 644px;
+    height: 100%;
+    top: 50px;
+    left: 0;
+    @include responsive (tablet){
+        width: 744px;
+        top: 10px;
+    
+    }
+    @include responsive (tabletmin){
+        width: 534px;
+        height: 100%;
+    }
+    @include responsive (mobile){
+        height: 100%;
+        width: 354px;
+        top: 0px;
+        left: -110px;
+    }
+    @include responsive (mobilemin){
+        top: 10px;
+        left: -150px;
+    }
+    @include responsive (mobilemaxmin){
+        left: -160px;
+        top: -130px;
     }
 }
+.coming{
+    margin-top: 10rem;
+    margin-bottom: 25rem;
+    padding-top: 15rem;
+    padding-bottom: 0rem;
+    @include responsive (tablet){
+        padding-top: 35rem;
+    }
+    position: relative;
+    @include center;
+    margin-bottom: 5rem;
+    @include responsive (tablet){
+        padding-top: 15rem;
+    }
+    @include responsive (tabletmin){
+        flex-direction: column;
+        padding-top: 20rem;
+    }
+    @include responsive (mobile){
+        padding-top: 20rem;
+        }
+    @include responsive (mobilemin){
+        padding-top: 40rem;
+    }
+}
+.coming-right{
+display: block;
+margin-left: auto;
+@include responsive (tablet){
+    margin-right: auto;
+}
+}
+.coming__info {
+    margin-top: -50px;
+    @include responsive (tablet){
+        @include center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 15rem;
+    }
+    &__tittle{
+    max-width: 49.5rem; 
+    @include font ($font-weight-bold, $tittle-normal-size, $tittle-normal-line, $dark-color);
+    margin-bottom: 2.4rem;
+    @include responsive (tablet){
+        margin-top: 10rem;
+    }
+    @include responsive (mobilemin){
+        font-size: 3.2rem;
+        line-height: 1;
+        margin-top: -20rem;
+    }
+    }
+    &__text{
+        font-family: $legend-font;
+        max-width: 49.5rem; 
+        @include font ($font-weight-normal, $text-size, $text-line, $dim-grey);
+        margin-bottom: 4rem;
+    }
+}
+
+// COMING-END
+// PAYMENTS
+.payments{
+    @include responsive (tablet){
+        padding-top: 35rem;
+    }
+    margin-top: 15rem;
+    position: relative;
+    @include center;
+    margin-bottom: 5rem;
+    @include responsive (tabletmin){
+        flex-direction: column;
+    }
+}
+
+.payments::before{
+    content: "";
+    background-image: url(/images/payments-img.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    position: absolute;
+    width: 445px;
+    height: 445px;
+    top:-74px;
+    right: 150px;
+    border-radius: 50%;
+    @include responsive (desctop){
+        width: 350px;
+        height: 350px;
+        top: 0rem;
+    }
+    @include responsive (tablet){
+        top: 0;
+        left: 22%;
+        right: 0;
+    }
+    @include responsive (mobile){
+        width: 300px;
+        height: 300px;
+        top: 0;
+        left: 15%;
+        right: 0;
+    }
+    @include responsive (mobilemin){
+        width: 250px;
+        height: 250px;
+        margin-top: -10rem;
+    }
+    @include responsive (mobilemaxmin){
+        width: 200px;
+        height: 200px;
+    }
+}
+.payments::after{
+    content: "";
+    background-image: url(/images/pyments-right-arrow.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 334px;
+    height: 100%;
+    top: 10px;
+    right: 0;
+    @include responsive (tablet){
+    top: 230px;
+    
+    
+    }
+    @include responsive (tabletmin){
+        width: 534px;
+        height: 100%;
+    }
+    @include responsive (mobile){
+        height: 100%;
+        width: 354px;
+        top: 130px;
+    }
+    @include responsive (mobilemin){
+        top: 5px;
+        width: 300px;
+    }
+    @include responsive (mobilemaxmin){
+        width: 250px;
+        right: 0;
+    }
+}
+// PAYMENTS-END
+
 
 
 /*
 *************************** ABOUT ***************************
 */
+.mobility::before{
+    content: "";
+    background-image: url(/images/mobility.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    position: absolute;
+    width: 445px;
+    height: 445px;
+    top:34px;
+    right: 50px;
+    border-radius: 50%;
+    @include responsive (desctop){
+        width: 350px;
+        height: 350px;
+        top: 9rem;
+    }
+    @include responsive (tablet){
+        top: 0;
+        left: 25%;
+        right: 0;
+        margin-top: 8rem;
+    }
+    @include responsive (mobile){
+        width: 300px;
+        height: 300px;
+        top: 0;
+        left: 23%;
+        right: 0;
+    }
+    @include responsive (mobilemin){
+        width: 250px;
+        height: 250px;
+        margin-top: -10rem;
+        top: 120px;
+    }
+    @include responsive (mobilemaxmin){
+        width: 200px;
+        height: 200px;
+    }
+}
+.mobility::after{
+    content: "";
+    background-image: url(/images/mobility-arrow.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 644px;
+    height: 100%;
+    top: 250px;
+    
+    right: 0;
+    @include responsive (tablet){
+    top: 230px;
+    width: 744px;
+    
+    }
+    @include responsive (tabletmin){
+        width: 534px;
+        height: 100%;
+    }
+    @include responsive (mobile){
+        height: 100%;
+        width: 354px;
+        top: 130px;
+    }
+    @include responsive (mobilemin){
+        top: 85px;
+        width: 300px;
+    }
+    @include responsive (mobilemaxmin){
+        width: 250px;
+        right: 0;
+    }
+}
+.mobility {
+    padding-top: 15rem;
+    padding-bottom: 5rem;
+    @include responsive (tablet){
+        padding-top: 35rem;
+    }
+    position: relative;
+    @include center;
+    margin-bottom: 5rem;
+    @include responsive (tabletmin){
+        flex-direction: column;
+    }
+    @include responsive (mobilemin){
+        padding-top: 50rem;
+    }
+}
+.mobility__info {
+    @include responsive (tablet){
+        @include center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    &__tittle{
+    max-width: 49.5rem; 
+    @include font ($font-weight-bold, $tittle-normal-size, $tittle-normal-line, $dark-color);
+    margin-bottom: 2.4rem;
+    @include responsive (tablet){
+        margin-top: 10rem;
+    }
+    @include responsive (mobilemin){
+        font-size: 3.2rem;
+        line-height: 1;
+        margin-top: -20rem;
+    }
+    }
+    &__text{
+        font-family: $legend-font;
+        max-width: 49.5rem; 
+        @include font ($font-weight-normal, $text-size, $text-line, $dim-grey);
+        margin-bottom: 4rem;
+    }
+}
 
+// BETTER
+
+.better::before{
+    content: "";
+    background-image: url(/images/better.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    position: absolute;
+    width: 445px;
+    height: 445px;
+    top:34px;
+    right: 0;
+    left: 50px;
+    border-radius: 50%;
+    @include responsive (desctop){
+        width: 350px;
+        height: 350px;
+        top: 9rem;
+    }
+    @include responsive (tablet){
+        top: -200px;
+        left: 25%;
+        right: 0;
+        margin-top: 8rem;
+    }
+    @include responsive (mobile){
+        width: 300px;
+        height: 300px;
+        top: -100px;
+        left: 23%;
+        right: 0;
+    }
+    @include responsive (mobilemin){
+        width: 250px;
+        height: 250px;
+        margin-top: -10rem;
+        top: 10px;
+        left: 58px;
+    }
+    @include responsive (mobilemaxmin){
+        width: 200px;
+        height: 200px;
+    }
+}
+.better::after{
+    content: "";
+    background-image: url(/images/better-arrow.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 644px;
+    height: 100%;
+    top: 50px;
+    left: 0;
+    @include responsive (tablet){
+    top: -90px;
+    width: 744px;
+    
+    }
+    @include responsive (tabletmin){
+        width: 534px;
+        height: 100%;
+    }
+    @include responsive (mobile){
+        height: 100%;
+        width: 354px;
+        top: 0px;
+        left: -110px;
+    }
+    @include responsive (mobilemin){
+        top: -100px;
+        left: -150px;
+    }
+    @include responsive (mobilemaxmin){
+        left: -160px;
+        top: -130px;
+    }
+}
+.better{
+    padding-top: 15rem;
+    padding-bottom: 5rem;
+    @include responsive (tablet){
+        padding-top: 35rem;
+    }
+    position: relative;
+    @include center;
+    margin-bottom: 5rem;
+    @include responsive (tablet){
+        padding-top: 15rem;
+    }
+    @include responsive (tabletmin){
+        flex-direction: column;
+        padding-top: 20rem;
+    }
+    @include responsive (mobile){
+        padding-top: 20rem;
+        }
+    @include responsive (mobilemin){
+        padding-top: 40rem;
+    }
+}
+.better-right{
+display: block;
+margin-left: auto;
+@include responsive (tablet){
+    margin-right: auto;
+}
+}
+.better__info {
+    @include responsive (tablet){
+        @include center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    &__tittle{
+    max-width: 49.5rem; 
+    @include font ($font-weight-bold, $tittle-normal-size, $tittle-normal-line, $dark-color);
+    margin-bottom: 2.4rem;
+    @include responsive (tablet){
+        margin-top: 10rem;
+    }
+    @include responsive (mobilemin){
+        font-size: 3.2rem;
+        line-height: 1;
+        margin-top: -20rem;
+    }
+    }
+    &__text{
+        font-family: $legend-font;
+        max-width: 49.5rem; 
+        @include font ($font-weight-normal, $text-size, $text-line, $dim-grey);
+        margin-bottom: 4rem;
+    }
+}
 /*
 *************************** VALUES-SECTION ***************************
 */
@@ -196,6 +786,11 @@ z-index: 2;
     }
     @include responsive (tabletmin){
         left: 14rem;
+    }
+    @include responsive (mobilemin){
+        left: 14rem;
+        font-size: 1.5rem;
+        // padding: 0.5rem 0.5rem;
     }
     @include responsive (mobilemaxmin){
         left: 12rem;
@@ -287,14 +882,131 @@ max-width: 73rem;
 }
 
 
-
-
-
-
-
 /*
 *************************** CAREERS PAGES ***************************
 */
+
+
+/*
+*************************** MISSION-SECTION ***************************
+*/
+.missions::before{
+    content: "";
+    background-image: url(/images/missions-img.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    position: absolute;
+    width: 445px;
+    height: 445px;
+    top:34px;
+    right: 50px;
+    border-radius: 50%;
+    @include responsive (desctop){
+        width: 350px;
+        height: 350px;
+        top: 9rem;
+    }
+    @include responsive (tablet){
+        top: 0;
+        left: 25%;
+        right: 0;
+        margin-top: 8rem;
+    }
+    @include responsive (mobile){
+        width: 300px;
+        height: 300px;
+        top: 0;
+        left: 23%;
+        right: 0;
+    }
+    @include responsive (mobilemin){
+        width: 250px;
+        height: 250px;
+        margin-top: -10rem;
+        top: 120px;
+    }
+    @include responsive (mobilemaxmin){
+        width: 200px;
+        height: 200px;
+    }
+}
+.missions::after{
+    content: "";
+    background-image: url(/images/arrow-left.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 734px;
+    height: 100%;
+    top: 330px;
+    
+    right: 0;
+    @include responsive (tablet){
+    top: 230px;
+    
+    
+    }
+    @include responsive (tabletmin){
+        width: 534px;
+        height: 100%;
+    }
+    @include responsive (mobile){
+        height: 100%;
+        width: 354px;
+        top: 130px;
+    }
+    @include responsive (mobilemin){
+        top: 85px;
+        width: 300px;
+    }
+    @include responsive (mobilemaxmin){
+        width: 250px;
+        right: 0;
+    }
+}
+.missions {
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+    @include responsive (tablet){
+        padding-top: 35rem;
+    }
+    position: relative;
+    @include center;
+    margin-bottom: 5rem;
+    @include responsive (tabletmin){
+        flex-direction: column;
+    }
+    @include responsive (mobilemin){
+        padding-top: 50rem;
+    }
+}
+.missions__info {
+    @include responsive (tablet){
+        @include center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    &__tittle{
+    max-width: 49.5rem; 
+    @include font ($font-weight-bold, $tittle-normal-size, $tittle-normal-line, $dark-color);
+    margin-bottom: 2.4rem;
+    @include responsive (tablet){
+        margin-top: 10rem;
+    }
+    @include responsive (mobilemin){
+        font-size: 3.2rem;
+        line-height: 1;
+        margin-top: -20rem;
+    }
+    }
+    &__text{
+        font-family: $legend-font;
+        max-width: 49.5rem; 
+        @include font ($font-weight-normal, $text-size, $text-line, $dim-grey);
+        margin-bottom: 4rem;
+    }
+}
+
 /*
 *************************** OCCUPATIONS-SECTION ***************************
 */
@@ -349,6 +1061,14 @@ max-width: 73rem;
 .world {
 padding-top: 14.4rem;
 padding-bottom: 12rem;
+@include responsive (tablet){
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+@include responsive (tabletmin){
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
 @include responsive (mobile){
     padding-top: 4rem;
     height: 121rem;
@@ -414,7 +1134,12 @@ position: absolute;
         left: 47rem;
     }
 }
-
+&__info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 &__title{
     max-width: 45.7rem;
     text-align: center;
@@ -435,16 +1160,20 @@ position: absolute;
     @include font ($font-weight-normal, $text-size, $text-line, $dim-grey);
 }
 &__btn{
-    margin-left: 42%;
-    @include responsive (mobile){
-        margin-left: 33%;
-    }
-    @include responsive (mobilemin){
-        margin-left: 20%;
-    }
-    @include responsive (mobilemaxmin){
-        margin-left: 15%;
-    }
+    // margin-left: 42%;
+    
+    // @include responsive (tabletmin){
+    //     margin-left: 38%;
+    // }
+    // @include responsive (mobile){
+    //     margin-left: 33%;
+    // }
+    //  @include responsive (mobilemin){
+    //      margin-left: 25%;
+    //  }
+    // @include responsive (mobilemaxmin){
+    //     margin-left: 15%;
+    // }
 }
 }
 .world-mobile {
