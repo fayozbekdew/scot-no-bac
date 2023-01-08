@@ -26,6 +26,12 @@
         padding-bottom: 0.8rem;
         padding-right: 1.6rem;
         padding-left: 1.1rem;
+        &__text{
+            @include font ($font-weight-bold, $mobile-text-size, $mobile-text-line, $dark-color);
+            @include responsive (mobilemin){
+                @include font ($font-weight-bold, 0.5rem, 0.3, $dark-color);
+            }
+        }
     }
     &__img{
         padding-left: 0.5rem;
