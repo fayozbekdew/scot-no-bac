@@ -1585,38 +1585,14 @@ main {
     flex-direction: column;
   }
 }
-.values__number {
-  position: absolute;
-  top: 18rem;
-  left: 14rem;
-  padding: 2rem 2rem;
-  border-radius: 50%;
-  background-color: #FCB72B;
-}
-@media screen and (max-width: 820px) {
-  .values__number {
-    top: 18rem;
-    left: 11rem;
-  }
-}
-@media screen and (max-width: 730px) {
-  .values__number {
-    left: 14rem;
-  }
-}
-@media screen and (max-width: 390px) {
-  .values__number {
-    left: 14rem;
-    font-size: 1.5rem;
-  }
-}
-@media screen and (max-width: 316px) {
-  .values__number {
-    left: 12rem;
-  }
-}
-.values__item {
+.values__item__images {
   position: relative;
+}
+.values__item__number {
+  position: absolute;
+  bottom: 0;
+  left: 48%;
+  transform: translate(-50%, 50%);
 }
 .values__item__img {
   border-radius: 50%;
